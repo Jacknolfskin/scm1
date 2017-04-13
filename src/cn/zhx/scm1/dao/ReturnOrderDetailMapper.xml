@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhx.scm1.dao.ReturnOrderDetailMapper" >
+  <resultMap id="returnOrderResultMap" type="cn.zhx.scm1.entity.ReturnOrderDetail" >
+    <id column="rod_id" property="rodId" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="VARCHAR" />
+    <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_type" property="goodsType" jdbcType="VARCHAR" />
+    <result column="goods_color" property="goodsColor" jdbcType="VARCHAR" />
+    <result column="rod_amount" property="rodAmount" jdbcType="INTEGER" />
+    <result column="rod_return_price" property="rodReturnPrice" jdbcType="DECIMAL" />
+    <result column="rod_total_price" property="rodTotalPrice" jdbcType="DECIMAL" />
+    <result column="ro_id" property="roId" jdbcType="VARCHAR" />
+      <result column="rod_imei_list" property="rodImeiList" jdbcType="LONGVARCHAR" /> 
+  </resultMap>
+  
+  <insert id="insertList"  >
+    insert into return_order_detail (rod_id, goods_id, goods_unit, 
+      goods_name, goods_type, goods_color, 
+      rod_amount, rod_return_price, rod_total_price, 
+      ro_id, rod_imei_list)
+      values
+      <foreach collection="list" item="item" separator="," >
+      (#{item.rodId,jdbcType=VARCHAR}, #{item.goodsId,jdbcType=VARCHAR}, #{item.goodsUnit,jdbcType=VARCHAR}, 
+      #{item.goodsName,jdbcType=VARCHAR}, #{item.goodsType,jdbcType=VARCHAR}, #{item.goodsColor,jdbcType=VARCHAR}, 
+      #{item.rodAmount,jdbcType=INTEGER}, #{item.rodReturnPrice,jdbcType=DECIMAL}, #{item.rodTotalPrice,jdbcType=DECIMAL}, 
+      #{item.roId,jdbcType=VARCHAR}, #{item.rodImeiList,jdbcType=LONGVARCHAR})
+      </foreach>
+  </insert>
+
+  
+</mapper>

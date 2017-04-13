@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSChart>
+	<dataset type="pie">
+		<data unit="我的Unit_1" value="20" />
+		<data unit="Unit_2" value="10" />
+		<data unit="Unit_3" value="30" />
+		<data unit="Unit_4" value="10" />
+		<data unit="我的Unit_5" value="5" />
+	</dataset>
+</JSChart>

@@ -1,0 +1,31 @@
+{  
+	"JSChart" : {  
+		"datasets" : [  
+			{  
+			"type" : "pie",  
+			"data" : [  
+					{  
+					"unit" : "Unit_1",  
+					"value" : "20"  
+					},  
+					{  
+					"unit" : "单位",  
+					"value" : "10"  
+					},  
+					{  
+					"unit" : "Unit_3",  
+					"value" : "30"  
+					},  
+					{  
+					"unit" : "Unit_4",  
+					"value" : "10"  
+					},  
+					{  
+					"unit" : "Unit_5",  
+					"value" : "5"  
+					}  
+				]  
+			}  
+		]  
+	}  
+}  

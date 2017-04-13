@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhx.scm1.dao.GoodsMapper" >
+  <resultMap id="goodsResultMap" type="cn.zhx.scm1.entity.Goods" >
+    <id column="goods_Id" property="goodsId" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR" />
+    <result column="goods_type" property="goodsType" jdbcType="VARCHAR" />
+    <result column="goods_color" property="goodsColor" jdbcType="VARCHAR" />
+    <result column="goods_store" property="goodsStore" jdbcType="INTEGER" />
+    <result column="goods_limit" property="goodsLimit" jdbcType="INTEGER" />
+    <result column="goods_commission" property="goodsCommission" jdbcType="DECIMAL" />
+    <result column="goods_producer" property="goodsProducer" jdbcType="VARCHAR" />
+    <result column="goods_remark" property="goodsRemark" jdbcType="VARCHAR" />
+    <result column="goods_sel_price" property="goodsSelPrice" jdbcType="DECIMAL" />
+    <result column="goods_buy_price" property="goodsBuyPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <!-- 通过多条件分页查询，返回数据集 -->
+  <select id="selectPageListUseDyc" parameterType="page" resultMap="goodsResultMap">
+  select * from goods
+  <where>
+  <if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+  </where>
+  limit #{start},#{rows}
+  </select>
+  
+  <!--批量导出 -->
+  <select id="selectScore" resultType="map">
+  select goods_Id as goodsId,goods_name as goodsName,goods_unit as goodsUnit,goods_type as goodsType,goods_color as goodsColor from goods where goods_id in
+  <foreach collection="array" open="(" close=")" separator="," item="pks">
+  #{pks}
+  </foreach>
+  </select>
+  
+  <!-- <select id="selectScore" resultType="cn.zhx.scm1.entity.GoodsBean">
+  select goods_Id goodsId,goods_name goodsName,goods_unit goodsUnit,goods_type goodsType,goods_color goodsColor from goods where goods_id in
+  <foreach collection="array" open="(" close=")" separator="," item="pks">
+  #{pks}
+  </foreach>
+  </select> -->
+  
+  <!--通过多条件分页查询，返回总记录数  -->
+  <select id="selectPageCountUseDyc" parameterType="page" resultType="Integer">
+  select count(1) from goods
+  <where>
+  <if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+  </where>
+  <!--插入商品相关信息  -->
+  <!-- goods_color,goods_store,goods_limit,goods_commission,goods_producer,goods_remark,goods_sel_price,goods_buy_price -->
+  <!-- #{goodsStore},#{goodsLimit},#{goodsCommission},#{goodsProducer},#{goodsRemark},#{goodsSelPrice},#{goodsBuyPrice} -->
+  </select>
+  
+  
+  <insert id="insert" parameterType="goods">
+		insert into goods
+		(goods_id,goods_name,goods_unit,goods_color,goods_type)
+		values
+		(#{goodsId},#{goodsName},#{goodsUnit},#{goodsColor},#{goodsType});
+	</insert>
+   <update id="update" parameterType="goods" >
+		update goods set
+		goods_id=#{goodsId},goods_name=#{goodsName},goods_unit=#{goodsUnit},goods_color=#{goodsColor},goods_type=#{goodsType}
+		where
+		goods_id=#{goodsId}
+	</update>
+	
+	<delete id="deleteList">
+	  delete from goods where goods_id in
+	  <foreach collection="array" open="(" close=")" separator="," item="pk">
+	  #{pk}
+  </foreach>
+  </delete>
+ 
+</mapper>

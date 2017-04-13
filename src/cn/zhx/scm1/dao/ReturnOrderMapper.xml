@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhx.scm1.dao.ReturnOrderMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhx.scm1.entity.ReturnOrder" >
+    <id column="ro_id" property="roId" jdbcType="VARCHAR" />
+    <result column="sup_id" property="supId" jdbcType="INTEGER" />
+    <result column="sh_id" property="shId" jdbcType="VARCHAR" />
+    <result column="ro_date" property="roDate" jdbcType="VARCHAR" />
+    <result column="ro_payable" property="roPayable" jdbcType="DECIMAL" />
+    <result column="ro_paid" property="roPaid" jdbcType="DECIMAL" />
+    <result column="ro_remark" property="roRemark" jdbcType="VARCHAR" />
+    <result column="ro_arrears" property="roArrears" jdbcType="DECIMAL" />
+    <result column="ro_original" property="roOriginal" jdbcType="VARCHAR" />
+    <result column="ro_attn" property="roAttn" jdbcType="VARCHAR" />
+    <result column="ro_operator" property="roOperator" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="cn.zhx.scm1.entity.ReturnOrder" >
+    insert into return_order (ro_id, sup_id, sh_id, ro_date,ro_payable,ro_paid, 
+      ro_arrears,ro_original,ro_remark,ro_attn,ro_operator
+      )
+    values (#{roId}, #{supId},#{shId}, #{roDate},#{roPayable}, #{roPaid},
+      #{roArrears}, #{roOriginal},#{roRemark}, #{roAttn}, #{roOperator})
+  </insert>
+  <!-- #{roDate,jdbcType=DATE} -->
+</mapper>

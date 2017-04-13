@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhx.scm1.dao.AccountMapper" >
+  <resultMap id="accountResultMap" type="cn.zhx.scm1.entity.Account" >
+    <id column="acc_id" property="accId" jdbcType="INTEGER" />
+    <result column="acc_login" property="accLogin" jdbcType="VARCHAR" />
+    <result column="acc_name" property="accName" jdbcType="VARCHAR" />
+    <result column="acc_pass" property="accPass" jdbcType="VARCHAR" />
+    <result column="acc_type" property="accType" jdbcType="VARCHAR" />
+    <result column="acc_email" property="accEmail" jdbcType="VARCHAR" />
+    <result column="acc_validatacode" property="validataCode" jdbcType="VARCHAR" />
+    <result column="acc_registerdate" property="registerDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <!--用户登陆  -->
+  <select id="login" parameterType="Account" resultMap="accountResultMap">
+  select * from account where acc_login = #{accLogin} and acc_pass=#{accPass}
+  </select>
+  
+  <!--登陆验证  -->
+  <select id="find" parameterType="Account" resultMap="accountResultMap">
+  select * from account where acc_name = #{accName} or acc_login=#{accLogin}
+  </select>
+  
+  <!--根据账户名称和账户查询  -->
+  <select id="findByNameLogin" parameterType="string" resultMap="accountResultMap">
+  select * from account where acc_name = #{accName} or acc_login=#{accLogin}
+  </select>
+  
+  <!--用户注册  -->
+  <insert id="insert" parameterType="Account">
+  insert into account(acc_name,acc_login,acc_email,acc_pass,acc_type,acc_validatacode,acc_registerdate) values(#{accName},#{accLogin},#{accEmail},#{accPass},#{accType},#{validataCode},#{registerDate})
+  </insert>
+  
+  <!--用户信息修改  -->
+  <update id="update" parameterType="Account">
+  update account set acc_name=#{accName},acc_login=#{accLogin},acc_email=#{accEmail},acc_pass=#{accPass},acc_type=#{accType},acc_validatacode=#{validataCode},acc_registerdate=#{registerDate} 
+  where
+  acc_id=#{accId} or acc_login=#{accLogin}
+  </update>
+  
+  <!--修改登录密码  -->
+  <update id="updateAccPass" parameterType="Account">
+  update account set acc_pass=#{accPass} 
+  where
+  acc_name=#{accName} or acc_login=#{accLogin}
+  </update>
+  
+ <!--忘记密码 -->
+  <update id="forget" parameterType="Account">
+  update account set acc_name=#{accName},acc_login=#{accLogin},acc_email=#{accEmail},acc_pass=#{accPass},acc_type=#{accType},acc_validatacode=#{validataCode},acc_registerdate=#{registerDate}
+  </update>
+  
+  <!-- 通过多条件分页查询，返回数据集 -->
+  <select id="selectPageListUseDyc" parameterType="page" resultMap="accountResultMap">
+  select * from account
+  <where>
+  <if test="paramEntity.accLogin!=null">and acc_login like #{paramEntity.accLogin}</if>
+  <if test="paramEntity.accType!=null">and acc_type like #{paramEntity.accType}</if>
+  </where>
+  limit #{start},#{rows}
+  </select>
+  <!--通过多条件分页查询，返回总记录数  -->
+  <select id="selectPageCountUseDyc" parameterType="page" resultType="Integer">
+  select count(1) from account
+  <where>
+  <if test="paramEntity.accLogin!=null">and acc_login like #{paramEntity.accLogin}</if>
+  <if test="paramEntity.accType!=null">and acc_type like #{paramEntity.accType}</if>
+  </where>
+  </select>
+</mapper>

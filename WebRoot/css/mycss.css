@@ -1,0 +1,101 @@
+/* 例如可以页面只单独的表单时可使用 */
+/* 页面背景样式 */
+.mybody{
+	    background:#eee;
+}
+/* 表单样式 */
+.myfm 
+{ 
+    margin: 0;     
+    padding: 20px 100px;
+    background:#eee;
+}
+/* 表单标题样式 */
+.myftitle 
+{ 
+    font-size: 14px; 
+    font-weight: bold; 
+    padding: 5px 0; 
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #ccc; 
+}
+/* 表单项样式 */
+.myfitem 
+{ 
+	font-size: 14px;
+    margin-bottom: 5px; 
+}
+/* 表单项lable样式 */
+.myfitem label 
+{ 
+	/* 并排显示 */
+    display: inline-block; 
+    width: 120px; 
+}
+/* 表单项样input样式*/
+.myfitem input 
+{        		 
+    width: 200px; 
+}
+/* 表单项样select控件样式*/
+  .myfitem select 
+{        		 
+    width: 200px; 
+}
+/* 表单项样textarea控件样式*/
+  .myfitem textarea 
+{        		 
+    width: 200px; 
+}
+
+/* 表单项样式 2*/
+.myfitem2 
+{ 
+	font-size: 12px;
+	/*下边距*/	
+    margin-bottom: 5px; 
+}
+/* 表单项lable样式 */
+.myfitem2 label 
+{ 
+    display: inline-block; 
+    width: 60px;
+    /* 设置左边距 */
+    margin-left:70px;
+}
+/* 表单项样input样式*/
+.myfitem2 input 
+{        		 
+    width: 200px; 
+}
+/* 表单项样select控件样式*/
+  .myfitem2 select 
+{        		 
+    width: 200px; 
+}
+/* 表单项样textarea控件样式*/
+  .myfitem2 textarea 
+{        		 
+    width: 200px; 
+}
+
+.searchbox {
+	width: 200px;;
+}
+.easyui-combobox {
+	width: 200px;
+}
+.easyui-datebox {
+	width: 200px;
+}
+
+.easyui-numberbox {
+	width: 200px;
+}
+
+
+/* 表单项超链接按钮（easyui按钮)样式 */
+.myfitem a 
+{        		 
+    margin: 2px 30px;
+}
