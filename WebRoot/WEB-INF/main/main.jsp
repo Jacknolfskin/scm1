@@ -56,8 +56,8 @@
 
 				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
 				<ul style="list-style: none;padding: 0px;margin:0px;">
-					<li style="padding: 6px;"><a href="${proPath}/base/goURL/supplier/supplierlist.action" title="供应商管理"
-						style="text-decoration: none;display: block;font-weight:bold;">供应商管理</a>
+					<li iconCls="icon-users" style="padding: 6px;"><a href="${proPath}/base/goURL/supplier/supplierlist.action" title="供应商管理"
+						data-icon="icon-users" style="text-decoration: none;display: block;font-weight:bold;">供应商管理</a>
 					</li>
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/goods/goodslist.action" title="商品管理"
 						style="text-decoration: none;display: block;font-weight:bold;">商品管理</a>

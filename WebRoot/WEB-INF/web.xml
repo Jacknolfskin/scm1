@@ -42,7 +42,7 @@
 
 	
 	<!-- 配置登陆过滤器 -->
-  <filter>
+  <!--<filter>
          <filter-name>login</filter-name>
          <filter-class>cn.zhx.scm1.servlets.LoginFilter</filter-class>
      </filter>
@@ -50,7 +50,7 @@
      <filter-mapping>
          <filter-name>login</filter-name>
          <url-pattern>/WEB-INF/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping>-->
   
 	<filter>
 		<filter-name>encodingFilter</filter-name>
