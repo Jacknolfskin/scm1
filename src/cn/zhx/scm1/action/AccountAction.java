@@ -42,10 +42,10 @@ public String login(Account account,String accWord,HttpServletRequest request,Ht
 	if (random.equalsIgnoreCase(accWord)) {
 		if (acc!=null) {
 			session.setAttribute("account", acc); 
-			return "forward:/WEB-INF/main/main.jsp";
+			return "forward:/WEB-INF/main/index.jsp";
 		}else {
 			request.setAttribute("msg","用户名或密码错误!");
-			return "forward:/login.jsp";
+			return "forward:/WEB-INF/main/index.jsp";
 		}
 	}else {
 		request.setAttribute("msg","验证码错误!");
