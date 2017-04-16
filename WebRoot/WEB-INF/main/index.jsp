@@ -12,7 +12,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="copyright" content="All Rights Reserved, Copyright (C) 2013, Wuyeguo, Ltd." />
-    <title>EasyUI Web Admin Power by Wuyeguo</title>
+    <%--<title>Power by Wuyeguo</title>--%>
     <script type="text/javascript">
 
        /* tabPanel.tabs('add',{
@@ -60,10 +60,10 @@
 <!-- begin of header -->
 <div class="wu-header" data-options="region:'north',border:false,split:true">
     <div class="wu-header-left">
-        <h1>EasyUI Web Admin</h1>
+        <h1>欢迎使用进销存系统</h1>
     </div>
     <div class="wu-header-right">
-        <p><strong class="easyui-tooltip" title="2条未读消息">admin</strong>，欢迎您！</p>
+        <p><strong class="easyui-tooltip" title="2条未读消息">${sessionScope.account.accLogin}</strong>，欢迎您！</p>
         <p><a href="#">网站首页</a>|<a href="#">支持论坛</a>|<a href="#">帮助中心</a>|<a href="#">安全退出</a></p>
     </div>
 </div>
@@ -74,71 +74,45 @@
         <div title="快捷菜单" data-options="iconCls:'icon-application-cascade'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
                 <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" iconCls="icon-chart-organisation" data-link="../temp/layout-2.html" >菜单导航</a></li>
-                <li iconCls="icon-users"><a href="${proPath}/base/goURL/supplier/supplierlist.action" data-icon="icon-users" title="用户管理">用户管理</a></li>
+                <li iconCls="icon-user-group"><a href="${proPath}/base/goURL/account/systemuser.action"  data-icon="icon-user-group" title="用户管理">用户管理</a></li>
                 <li iconCls="icon-user-group"><a href="${proPath}/base/goURL/goods/goodslist.action" data-icon="icon-user-group" title="商品管理">商品管理</a></li>
                 <li iconCls="icon-book"><a href="${proPath}/base/goURL/buyorder/insert.action" data-icon="icon-book" title="商品采购">商品采购</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="../temp/layout-3.html" iframe="0">系统参数</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">操作日志</a></li>
             </ul>
         </div>
         <div title="内容管理" data-options="iconCls:'icon-application-form-edit'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-chart-organisation"><a href="${proPath}/base/goURL/supplier/supplierlist.action" data-icon="icon-chart-organisation" title="供应商管理">供应商管理</a></li>
+                <li iconCls="icon-book"><a href="${proPath}/base/goURL/goods/goodslist.action" data-icon="icon-book" title="商品管理">商品管理</a></li>
             </ul>
         </div>
-        <div title="商品管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">
+
+        <div title="采购管理" data-options="iconCls:'icon-bricks'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-chart-organisation"><a href="${proPath}/base/goURL/buyorder/insert.action"  data-icon="icon-chart-organisation" title="商品采购">商品采购</a></li>
+                <li iconCls="icon-application-osx-error"><a href="${proPath}/base/goURL/returnorder/insert.action"  data-icon="icon-application-osx-error" title="商品退货" >商品退货</a></li>
             </ul>
         </div>
+
         <div title="订单管理" data-options="iconCls:'icon-cart'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-book"><a href="${proPath}/base/goURL/accountRecords/accountRecords.action" data-icon="icon-book" title="订单明细">订单明细</a></li>
             </ul>
         </div>
-        <div title="广告管理" data-options="iconCls:'icon-bricks'" style="padding:5px;">
+
+        <div title="用户管理" data-options="iconCls:'icon-user-group'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-user-group"><a href="${proPath}/base/goURL/account/systemuser.action"  data-icon="icon-user-group" title="用户管理">用户管理</a></li>
             </ul>
         </div>
+
         <div title="报表中心" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-chart-curve"><a href="${proPath}/base/goURL/datareport/selectsupplier.action" data-icon="icon-chart-curve" title="供应商采购额统计">供应商采购额统计</a></li>
             </ul>
         </div>
         <div title="系统设置" data-options="iconCls:'icon-wrench'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" onclick="exit();">退出系统</a></li>
             </ul>
         </div>
     </div>
@@ -251,6 +225,16 @@
             var index = tabPanel.tabs('getTabIndex', tab);
             tabPanel.tabs('close', index);
         }
+    }
+    /*退出系统*/
+    function exit() {
+        $.messager.confirm("操作提示","确定要退出系统吗？",function(data){
+            if(data){
+                window.location.href="/scm1/servlet/LoginOutServlet";
+            }else{
+                console.log("false");
+            }
+        });
     }
 </script>
 </body>
