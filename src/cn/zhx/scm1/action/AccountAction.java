@@ -45,10 +45,10 @@ public String login(Account account,String accWord,HttpServletRequest request,Ht
 			return "forward:/WEB-INF/main/index.jsp";
 		}else {
 			request.setAttribute("msg","用户名或密码错误!");
-			return "forward:/WEB-INF/main/index.jsp";
+			return "forward:/WEB-INF/main/login.jsp";
 		}
 	}else {
-		request.setAttribute("msg","验证码错误!");
+		request.setAttribute("msg","登陆错误,请重新登陆!");
 		return "forward:/login.jsp";
 	}
 	}
