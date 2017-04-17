@@ -42,7 +42,7 @@
 			var win = parent.$("iframe[title='用户管理']").get(0).contentWindow;//返回ifram页面窗体对象（window)
 			
 			var row = win.$('#dg').datagrid("getSelected");
-			alert(row.accId);
+			//alert(row.accId);
 			
 			$('#ff').form('load',{
 				accId:row.accId,

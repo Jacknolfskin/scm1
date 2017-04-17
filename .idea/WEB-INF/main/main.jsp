@@ -56,8 +56,8 @@
 
 				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
 				<ul style="list-style: none;padding: 0px;margin:0px;">
-					<li style="padding: 6px;"><a href="${proPath}/base/goURL/supplier/supplierlist.action" title="供应商管理"
-						style="text-decoration: none;display: block;font-weight:bold;">供应商管理</a>
+					<li iconCls="icon-users" style="padding: 6px;"><a href="${proPath}/base/goURL/supplier/supplierlist.action" title="供应商管理"
+						data-icon="icon-users" style="text-decoration: none;display: block;font-weight:bold;">供应商管理</a>
 					</li>
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/goods/goodslist.action" title="商品管理"
 						style="text-decoration: none;display: block;font-weight:bold;">商品管理</a>
@@ -71,7 +71,7 @@
 			<div title="采购管理">
 
 
-				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
+				<!-- list-style: none去左边的点；text-decoration: none：去超href="${proPath}/base/goURL/accountRecords/accountRecords.action" title="进销明细"链接下划线,title用来区分后继定位这里的超链接 -->
 				<ul style="list-style: none;padding: 0px;margin:0px;">
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/buyorder/insert.action" title="商品采购"
 						style="text-decoration: none;display: block;font-weight:bold;">商品采购</a>
@@ -79,7 +79,7 @@
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/returnorder/insert.action" title="商品退货"
 						style="text-decoration: none;display: block;font-weight:bold;">商品退货</a>
 					</li>
-					<li style="padding: 6px;"><a href="${proPath}/base/goURL/accountRecords/accountRecords.action" title="进销明细"
+					<li style="padding: 6px;"><a
 						style="text-decoration: none;display: block;font-weight:bold;">进销明细</a>
 					</li>
 				</ul>
@@ -130,14 +130,14 @@
 	<div id="win" ></div>
 <script type="text/javascript">
 	function exit() {
-		$.messager.confirm("操作提示","确定要退出系统吗？",function(data){
-			if(data){
-				window.location.href="/scm1/servlet/LoginOutServlet";
-			}else{
-				console.log("false");
-			}
-		});
-	}
+        $.messager.confirm("操作提示","确定要退出系统吗？",function(data){
+            if(data){
+                window.location.href="/scm1/servlet/LoginOutServlet";
+            }else{
+                console.log("false");
+            }
+        });
+    }
 </script>
 </body>
 

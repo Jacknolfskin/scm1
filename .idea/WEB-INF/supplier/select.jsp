@@ -41,7 +41,7 @@
 					text:'选择供应商',
 					handler: function(){
 					var row =  $("#dg").datagrid("getSelected");
-					alert(row.supId);
+					//alert(row.supId);
 					win.$("#ff").form('load',{
 						supId:row.supId,
 						supName:row.supName
@@ -50,16 +50,6 @@
 					
 					parent.$("#win").window("close");
 
-					
-					
-						//alert('新增按钮');
-					/* 	parent.$('#win').window({    
-							title :'添加供应商',						
-						    width:600,    
-						    height:400,    
-						    modal:true,
-						    content:"<iframe src='${proPath}/base/goURL/supplier/insert.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
-						});  */
 					}
 						
 
@@ -119,17 +109,7 @@
 			}, 
 			prompt:'' 
 		});
-		
-	/* 通过关键字查询
-		$('#ss').searchbox({ 
-			searcher:function(value,name){ 
-				alert(value + "," + name); 
-				$('#dg').datagrid('load',{
-					keyWord: '%'+value+'%'					
-				});					
-			}, 
-			prompt:'请输入供应商名称' 
-		}); */ 
+
 
 	});
 </script>

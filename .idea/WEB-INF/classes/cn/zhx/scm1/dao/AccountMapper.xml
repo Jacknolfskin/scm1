@@ -44,6 +44,14 @@
   where
   acc_name=#{accName} or acc_login=#{accLogin}
   </update>
+
+  <!--批量删除用户-->
+  <delete id="deleteList">
+    delete from account where acc_id in
+    <foreach collection="array" open="(" close=")" separator="," item="pk">
+      #{pk}
+    </foreach>
+  </delete>
   
  <!--忘记密码 -->
   <update id="forget" parameterType="Account">

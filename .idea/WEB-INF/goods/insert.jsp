@@ -79,7 +79,7 @@
 				//alert("ddddddddddd");
 				$("#ff").form("enableValidation");
 				if ($("#ff").form("validate")) {
-					alert("------------");
+					//alert("------------");
 					$('#ff').form('submit', {
 						url : '${proPath}/goods/insert.action',
 						onSubmit : function() {

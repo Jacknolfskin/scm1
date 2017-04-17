@@ -42,7 +42,7 @@
 		</div>
 		<div class="myfitem">
 			<label for="arDate">交易时间:</label> <input type="text"
-				name="arDate" ></input>
+				name="arDate" >
 		</div>
 		<div class="myfitem">
 			<label for="arId">交易编号:</label> <input type="text"
@@ -60,10 +60,10 @@
 
 	<script type="text/javascript">
 		$(function() {
-			var win = parent.$("iframe[title='进销明细']").get(0).contentWindow;//返回ifram页面窗体对象（window)
+			var win = parent.$("iframe[title='订单明细']").get(0).contentWindow;//返回ifram页面窗体对象（window)
 			
 			var row = win.$('#dg').datagrid("getSelected");
-			alert(row.supId);
+			//alert(row.supId);
 			
 			$('#ff').form('load',{
 				supId:row.supId,

@@ -26,7 +26,7 @@
 				name="supPhone" />
 		</div>
 		<div class="myfitem">
-			<label for="supAddress">联系地址:</label> <input type="text"
+			<label for="supAddress">供应商地址:</label> <input type="text"
 				name="supAddress" />
 		</div>
 				<div class="myfitem">
@@ -71,10 +71,8 @@
 			$("#ff").form("disableValidation");
 
 			$("#btn").click(function() {
-				//alert("ddddddddddd");
 				$("#ff").form("enableValidation");
 				if ($("#ff").form("validate")) {
-					alert("------------");
 					$('#ff').form('submit', {
 						url : '${proPath}/supplier/insert.action',
 						onSubmit : function() {
@@ -83,9 +81,9 @@
 						success : function(count) {							
 								//可以定义为对应消息框
 								if(count>0){
-									alert("添加成功！");									
+                                    $.messager.alert("操作提示", "添加成功！","info");
 								}else{
-									alert("添加失败！");
+                                    $.messager.alert("操作提示", "添加失败，请重试！","error");
 								}
 								parent.$("#win").window("close");
 								win.$("#dg").datagrid("reload");							

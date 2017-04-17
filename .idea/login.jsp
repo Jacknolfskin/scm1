@@ -44,6 +44,7 @@
 				<!-- 采用 js验证 -->
 				</p>
 			</div>
+			<%--<input value="清空全部" onClick="doReset()" type="button">--%>
 			<!-- <p>&nbsp;&nbsp;&nbsp;
 				<input type="checkbox" checked="checked" id="rem" />
                 <label for="rem">记住密码</label>
@@ -54,7 +55,16 @@
 		<div style="color:red">${requestScope.msg}</div>
 	</div>
 	<script type="text/javascript">
-	//闭眼到睁眼
+		//清空输入框
+       /* function doReset(){
+            for(i=0;i<document.all.tags("input").length;i++){
+                if(document.all.tags("input")[i].type=="text"){
+                    document.all.tags("input")[i].value="";
+                }
+            }
+        }*/
+
+        //闭眼到睁眼
 	function ps(){
 		if($("#id3").attr("type")=="password"){
 			$("#box").html("<input type='text' id='id3' name='accPass' value='"+$("#id3").val()+"' style='width:150px;border-radius:4px;border:2px solid #DBDBDB;'> <i id='ii' class='open' onclick='txt();'></i>");

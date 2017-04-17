@@ -45,10 +45,10 @@ public String login(Account account,String accWord,HttpServletRequest request,Ht
 			return "forward:/WEB-INF/main/index.jsp";
 		}else {
 			request.setAttribute("msg","用户名或密码错误!");
-			return "forward:/WEB-INF/main/login.jsp";
+			return "forward:/login.jsp";
 		}
 	}else {
-		request.setAttribute("msg","登陆错误,请重新登陆!");
+		request.setAttribute("msg","验证码错误,请重新输入!");
 		return "forward:/login.jsp";
 	}
 	}
@@ -125,6 +125,22 @@ public Object selectPageUseDyc(Page<Account> page,Account account){
 	System.out.println("----page:"+page);
 	Page p = accountService.selectPageUseDyc(page);
 	return p.getPageMap();
+}
+
+//批量删除用户
+@RequestMapping("/deleteList")
+@ResponseBody
+public Object deleteList(String [] pks)
+{
+	System.out.println("----doAjax.delteList:"+pks);
+	int i = 0;
+	try {
+		i = accountService.deleteList(pks);
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	return i;
 }
 
 //验证码生成

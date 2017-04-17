@@ -51,7 +51,8 @@
          <filter-name>login</filter-name>
          <url-pattern>/WEB-INF/*</url-pattern>
   </filter-mapping>
-  
+
+	<!--全局编码过滤器-->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

@@ -42,7 +42,7 @@
 										iconCls : 'icon-add',
 										text : '选择商品',
 										handler : function() {
-											alert('选择商品');
+											//alert('选择商品');
 											parent
 													.$('#win')
 													.window(
@@ -61,13 +61,13 @@
 										iconCls : 'icon-remove',
 										text : '删除商品',
 										handler : function() {
-											alert('删除商品');
+											//alert('删除商品');
 											//判断是否选中一行，并且只能选中一行进行修改
 											var array = $("#dg").datagrid(
 													"getSelections");
 											if (array.length > 0) {
 												for ( var i = array.length - 1; i >= 0; i--) {
-													alert(i);
+													//alert(i);
 													var index = $("#dg")
 															.datagrid(
 																	"getRowIndex",
@@ -77,7 +77,8 @@
 												}
 
 											} else {
-												alert("请选择不需要采购的商品");
+                                                $.messager.alert("操作提示", "请选择不需要采购的商品","warning");
+												//alert("请选择不需要采购的商品");
 											}
 
 										}
@@ -87,21 +88,21 @@
 										iconCls : 'icon-ok',
 										text : '提交采购',
 										handler : function() {
-											alert('提交采购');
+											//alert('提交采购');
 											//form表单验证
 											$('#ff').form("enableValidation");
 											//获取数据
-											/* var data = $("#dg").datagrid("getData");
+											var data = $("#dg").datagrid("getData");
 											//alert(data);
 											console.info(data);
 											console.info(data.rows);
 											if(data.rows.length==0){
-												alert("请选择需要采购的商品");
+                                                $.messager.alert("操作提示", "请选择需要采购的商品！","warning");
 												return false;
 											} 
 											//把对象转成JSON格式的字符串
-											 var rows =JSON.stringify(data.rows);
-											 */
+											 //var rows =JSON.stringify(data.rows);
+
 											var rows = $("#dg").datagrid(
 													"getRows");
 											console.info(rows);

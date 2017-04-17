@@ -42,7 +42,7 @@
 										iconCls : 'icon-add',
 										text : '选择商品',
 										handler : function() {
-											alert('选择商品');
+											//alert('选择商品');
 											parent
 													.$('#win')
 													.window(
@@ -61,7 +61,7 @@
 										iconCls : 'icon-remove',
 										text : '删除商品',
 										handler : function() {
-											alert('删除商品');
+											//alert('删除商品');
 											//判断是否选中一行，并且只能选中一行进行修改
 											var array = $("#dg").datagrid(
 													"getSelections");
@@ -77,7 +77,7 @@
 												}
 
 											} else {
-												alert("请选择不需要退货的商品");
+                                                $.messager.alert("操作提示", "请选择不需要退货的商品","warning");
 											}
 
 										}
@@ -87,21 +87,21 @@
 										iconCls : 'icon-ok',
 										text : '提交退货',
 										handler : function() {
-											alert('提交退货');
+											//alert('提交退货');
 											//form表单验证
 											$('#ff').form("enableValidation");
 											//获取数据
-											/* var data = $("#dg").datagrid("getData");
+											var data = $("#dg").datagrid("getData");
 											//alert(data);
 											console.info(data);
 											console.info(data.rows);
 											if(data.rows.length==0){
-												alert("请选择需要采购的商品");
+                                                $.messager.alert("操作提示", "请选择需要退货的商品！","warning");
 												return false;
 											} 
 											//把对象转成JSON格式的字符串
-											 var rows =JSON.stringify(data.rows);
-											 */
+											 //var rows =JSON.stringify(data.rows);
+
 											var rows = $("#dg").datagrid(
 													"getRows");
 											console.info(rows);
@@ -122,23 +122,22 @@
 																	return true;
 
 																},
-																success : function(
-																		data) {
-																	//自己处理返回的信息  
-																	alert(data);
-																	parent.$('#win').window({    
-																		//title :'修改商品',
-																	    width:300,    
-																	    height:200,    
-																	    modal:true,
-																	    content:"提交成功！"  
-																	}); 
-																}
-															});
+                                                                success : function(data) {
+                                                                    //自己处理返回的信息
+                                                                    //alert(data);
+                                                                    $.messager.alert("操作提示", "提交退货成功！","info");
+																	/* parent.$('#win').window({
+																	 //title :'修改商品',
+																	 width:300,
+																	 height:200,
+																	 modal:true,
+																	 content:"提交成功！"
+																	 }); */
+                                                                }
+                                                            });
+                                        }
 
-										}
-
-									} ],
+                                    } ],
 
 							columns : [ [ {
 								checkbox : true,
@@ -272,7 +271,7 @@
 					<option value="${shId.key}">${shId.value}</option>
 				</c:forEach>
 			</select> 
-			<label>日期：</label><input type="text" id="roDate" class="easyui-datebox"
+			<label>日期：</label><input type="text" id="roDate" class="easyui-datetimebox"
 				name="roDate" required="required"></input>
 		</div>
 		<div class="myfitem2">
