@@ -18,6 +18,7 @@ import cn.zhx.scm1.service.SysParamService;
  *
  * 
  */
+//系统参数加载
 @Controller
 @RequestMapping("/sysParam")
 public class SysParamAction extends BaseAction {

@@ -35,8 +35,6 @@ private AccountService accountService;
 public String login(Account account,String accWord,HttpServletRequest request,HttpSession session)
 {
 	String random = (String) request.getSession().getAttribute("random");
-	//System.out.println(random+"***************");
-	//System.out.println("-----action.account:"+account);
 	session.setAttribute("account", account);
 	Account acc  = accountService.login(account);
 	if (random.equalsIgnoreCase(accWord)) {
@@ -48,7 +46,7 @@ public String login(Account account,String accWord,HttpServletRequest request,Ht
 			return "forward:/login.jsp";
 		}
 	}else {
-		request.setAttribute("msg","验证码错误,请重新输入!");
+		    request.setAttribute("msg","验证码错误,请重新输入!");
 		return "forward:/login.jsp";
 	}
 	}

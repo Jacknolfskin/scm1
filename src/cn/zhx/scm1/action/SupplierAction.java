@@ -113,19 +113,9 @@ public Object selectPageUseDyc(Page<Supplier> page,Supplier supplier){
 		public Object selectScore(String [] pks,HttpServletResponse response,HttpServletRequest request) {
 			
 			String pksString = request.getParameter("pks");
-			//System.out.println("pksString="+pksString);
-
-			/*for (int i = 0; i < pks.length; i++) {
-				System.out.println(pks[i]+"------------------------------------");
-			}*/
 			List<Map<String, Object>> list = null;
 			try {
 				list = supplierService.selectScore(pks);
-				//System.out.println(list.size() + "=====");
-				//System.out.println("-------------------");
-				/*for(GoodsBean db:list){
-					System.out.println(db.getGoodsName()+"-----"+db.getGoodsId());
-				}*/
 				String[] titles = { "供应商编号", "供应商名称","联系人", "联系电话","期初应付(元)","供应商类型","供应商地址","备注" };// 这是excel中要显示的列，就是sql查出的字段列
 				List excelList = new ArrayList();
 				excelList.add(titles);
@@ -140,12 +130,6 @@ public Object selectPageUseDyc(Page<Supplier> page,Supplier supplier){
 							order.get("supType").toString(),
 							order.get("supAddress").toString(),
 							order.get("supRemark").toString()};
-							//order.length.toString()};
-							/*goods.getGoodsId().toString(),
-							goods.getGoodsName().toString(),
-							goods.getGoodsUnit().toString(),
-						    goods.getGoodsType().toString(),
-						    goods.getGoodsColor().toString()};*/
 					excelList.add(rowContents);
 				}
 				String excelName = "供应商列表"; // 导出的文件名称

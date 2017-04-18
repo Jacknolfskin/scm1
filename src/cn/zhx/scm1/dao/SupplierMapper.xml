@@ -78,7 +78,7 @@
   	<![CDATA[ 
   	select sum(ar_payable) total,sup_name from account_records inner join supplier 
   	on account_records.sup_id=supplier.sup_id 
-  	where ar_date >#{start} and ar_date<=#{end} and ar_bus_type='bo' 
+  	where ar_date >#{start} and ar_date<=#{end} and ar_bus_type='Bo'
   	group by sup_name  	
   	 ]]>
   </select>
