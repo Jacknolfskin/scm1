@@ -161,7 +161,7 @@
 						}
 					}
 				},'-',{
-					text:"名称：<input type='text' id='supName' name='supName'/>",					
+					text:"名称：<input type='text' id='supName' name='supName' />",
 				}
 				,'-',{
 					text:"地址：<input type='text' id='supAddress' name='supAddress'/>",					
