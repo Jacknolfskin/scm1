@@ -53,7 +53,7 @@
     </div>
     <div class="wu-header-right">
         <p><strong class="easyui-tooltip" title="2条未读消息">${sessionScope.account.accLogin}</strong>，欢迎您！</p>
-        <p><a href="${proPath}/base/goURL/main/main.action">网站首页</a>|<a href="#">支持论坛</a>|<a href="#">帮助中心</a>|<a href="#">安全退出</a></p>
+        <p><a href="${proPath}/base/goURL/main/index.action">网站首页</a>|<a href="http://www.csdn.net/">支持论坛</a>|<a href="javascript:void(0)" onclick="help();">帮助中心</a>|<a href="javascript:void(0)" onclick="exit();">安全退出</a></p>
     </div>
 </div>
 <!-- end of header -->
@@ -115,14 +115,26 @@
     </div>--%>
 <div data-options="region:'center',title:'主要信息'" style="padding:5px;background:#eee;">
     <div id="tt" class="easyui-tabs" data-options="fit:true" style="width:500px;height:250px;">
-        <div title="系统介绍" style="padding:20px;">这里可以写系统或公司的相关介绍等等 </div>
+        <div title="系统介绍" style="padding:20px;">
+            进销存系统主要由:
+            1:快捷菜单-----快速进行功能选择
+            2:内容管理-----主要由供应商管理和商品管理组成
+            3:采购管理-----提供商品的采购和退货
+            4:订单管理-----查看所有采购和退货的订单详情
+            5:用户管理-----查看该系统所有登录用户的基本信息
+            6:报表中心-----查看指定日期内直观的的采购信息统计
+            7:系统设置-----提供退出系统功能
+            共计七大模块组成，登录的用户角色分为普通用户，操作员，管理员三个角色
+            由这七个模块提供商品的进货，退货，查看明细等功能。
+            用户通过登录系统进行对应功能的操作，可分为：供应商的添加修改操作，商品的增删改查操作，商品的采购和退订操作，订单明细的查看和修改操作，采购订单报表生成和导出操作等等。
+        </div>
     </div>
 </div>
 <div id="win" ></div>
 <!-- end of main -->
 <!-- begin of footer -->
 <div class="wu-footer" data-options="region:'south',border:true,split:true">
-    &copy; 2017 胡飞版权，侵权必究
+    &copy; 2017 Mr.胡版权所有，侵权必究
 </div>
 <!-- end of footer -->
 <script type="text/javascript">
@@ -213,6 +225,16 @@
             }else{
                 console.log("false");
             }
+        });
+    }
+
+    function help() {
+        parent.$('#win').window({
+            title :'帮助中心',
+            width:600,
+            height:480,
+            modal:true,
+            content:"<iframe src='${proPath}/base/goURL/main/help.action' ></iframe>"
         });
     }
 </script>
