@@ -28,7 +28,6 @@
 				type:'post',
 				dataType:'json',
 				success:function(result){
-				//alert(result);
 				
 				  var data=new Array();  //data是一个数组
 					$(result).each(function(i){
