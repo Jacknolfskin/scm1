@@ -49,7 +49,7 @@
 															{
 																title : '选择需要退货的商品',
 																width : 600,
-																height : 400,
+																height : 450,
 																modal : true,
 																content : "<iframe src='${proPath}/base/goURL/goods/selectretun.action' height='100%' width='100%' frameborder='0px' ></iframe>"
 															});
@@ -61,13 +61,11 @@
 										iconCls : 'icon-remove',
 										text : '删除商品',
 										handler : function() {
-											//alert('删除商品');
 											//判断是否选中一行，并且只能选中一行进行修改
 											var array = $("#dg").datagrid(
 													"getSelections");
 											if (array.length > 0) {
 												for ( var i = array.length - 1; i >= 0; i--) {
-													alert(i);
 													var index = $("#dg")
 															.datagrid(
 																	"getRowIndex",
@@ -272,7 +270,7 @@
 				</c:forEach>
 			</select> 
 			<label>日期：</label><input type="text" id="roDate" class="easyui-datetimebox"
-				name="roDate" required="required"></input>
+				name="roDate" required="required">
 		</div>
 		<div class="myfitem2">
 			<label>应退：</label><input type="text" id="roPayable" name="roPayable" />

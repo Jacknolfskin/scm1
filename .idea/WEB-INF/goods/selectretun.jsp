@@ -28,7 +28,7 @@
 			    singleSelect:true,
 			    
 			    pagination:true,
-			    pageSize:5,
+			    pageSize:10,
 			    pageList:[2,5,10,20],
 			    
 			     queryParams: {
@@ -124,7 +124,7 @@
 	<table id="dg"></table>
 <form  style="padding:5px;margin:0px;background:#eee;"  action="">
 采购数量：<input type="text" id='rodAmount' name='rodAmount' class="easyui-numberbox" value="1" data-options="min:1,max:1000000000">
-价格：<input type="text" id='rodReturnPrice' name='rodReturnPrice' class="easyui-numberbox"  value="22" data-options="min:0,precision:2">
+价格：<input type="text" id='rodReturnPrice' name='rodReturnPrice' class="easyui-numberbox"  value="5500" data-options="min:0,precision:2">
 手机串号：<textarea  id='rodImeiList' name='rodImeiList'>3333</textarea>
 
 </form>

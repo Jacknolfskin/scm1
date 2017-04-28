@@ -28,14 +28,14 @@
 							nowrapL : true,
 							idField : 'goodsId',
 							rownumbers : true,
-							/* pagination:true,
-							pageSize:5,
-							pageList:[2,5,10,20], */
+							/*pagination:true,
+							pageSize:10,
+							pageList:[2,5,10,20],
 
-							/*     queryParams: {
+							    queryParams: {
 								supName: '%%',
 								supAddress:'%%'			
-							},  */
+							},*/
 
 							toolbar : [
 									{
@@ -49,7 +49,7 @@
 															{
 																title : '选择需要采购商品',
 																width : 600,
-																height : 400,
+																height : 450,
 																modal : true,
 																content : "<iframe src='${proPath}/base/goURL/goods/select.action' height='100%' width='100%' frameborder='0px' ></iframe>"
 															});
@@ -78,7 +78,6 @@
 
 											} else {
                                                 $.messager.alert("操作提示", "请选择不需要采购的商品","warning");
-												//alert("请选择不需要采购的商品");
 											}
 
 										}
@@ -124,16 +123,8 @@
 
 																},
 																success : function(data) {
-																	//自己处理返回的信息  
-																	//alert(data);
 																	 $.messager.alert("操作提示", "提交采购成功！","info");
-																	/* parent.$('#win').window({    
-																		//title :'修改商品',
-																	    width:300,    
-																	    height:200,    
-																	    modal:true,
-																	    content:"提交成功！"  
-																	}); */
+
 																}
 													      });
 										}
@@ -233,7 +224,6 @@
 				.searchbox(
 						{
 							searcher : function(value, name) {
-								//alert(value + "," + name);
 								parent
 										.$('#win')
 										.window(

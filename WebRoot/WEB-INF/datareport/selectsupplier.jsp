@@ -41,14 +41,50 @@
 							[  "商品5", 5 ]); */
 							//第二个参数值有：line,bar,pie分别表示用线形图、柱状图、饼图来展示报表
 					var myChart = new JSChart('chart_container',$("#type").val());
-					//数据源处理方式一：setDataArray(myData)使用js数组
+
 					myChart.setDataArray(data);
-					//数据源处理方式二：setDataJSON使用json格式数据
-					//myChart.setDataJSON(result);
-					//数据源处理方式三：setDataXML使用xml格式数据
-					//myChart.setDataXML("data.xml");
+                    //设置x轴和容器底部的距离，默认30。
+	                myChart.setAxisPaddingBottom(50);
+                    //设置x轴上标签文字与容器下边的距离，默认1
+                    myChart.setTextPaddingBottom(10);
+
+                    //设置y轴和容器左边距，默认30。
+                    myChart.setAxisPaddingLeft(80);
+                    //设置y轴上标签文字与容器左边的距离，默认8
+                    myChart.setTextPaddingLeft(20);
+
+                    //设置x轴上显示的值的个数，此值会自动调整，对饼图无效。
+                    myChart.setAxisValuesNumberY(11);
+                    //设置y轴的起始值，如果设置了结束值，则此值必须比结束值小.
+                    myChart.setIntervalStartY(10000);
+                    //设置y轴的结束值，如果设置了起始值，则此值必须比起始值大。
+                    myChart.setIntervalEndY(1000000);
+                    myChart.setSize(1000, 500);
+                    //设置x轴名称
+                    myChart.setAxisNameX('供应商');
+                    //设置x轴名称
+                    myChart.setAxisNameY('采购额');
+
+                    myChart.setLineColor('#4682B4', '采购额');
+                    //设置是否显示图例
+                    //myChart.setLegendShow(true);
+                    //设置x轴上提示
+                    myChart.setTooltip([1]);
+                    myChart.setTooltip([2]);
+                    myChart.setTooltip([3]);
+                    myChart.setTooltip([4]);
+                    myChart.setTooltip([5]);
+                    myChart.setTooltip([6]);
+                    myChart.setTooltip([7]);
+                    myChart.setTooltip([8]);
+                    myChart.setTooltip([9]);
+                    myChart.setTooltip([10]);
+                    //为提示标志设置颜色
+                    myChart.setFlagColor('#8A2BE2');
+                    //设置提示标志的半径，默认3.
+                    myChart.setFlagRadius(4);
 					
-					myChart.setTitle('测试报表');
+					myChart.setTitle('采购额统计报表');
 					
 					myChart.draw();
 				}

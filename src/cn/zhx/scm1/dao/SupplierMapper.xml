@@ -12,9 +12,6 @@
     <result column="sup_type" property="supType"/>
     
   </resultMap>
-  <!-- <insert id="insert" parameterType="Supplier">
-  insert into supplier (sup_name) values(#{supName})
-  </insert> -->
   
    <insert id="insert" parameterType="supplier">
 		insert into supplier
@@ -79,7 +76,7 @@
   	select sum(ar_payable) total,sup_name from account_records inner join supplier 
   	on account_records.sup_id=supplier.sup_id 
   	where ar_date >#{start} and ar_date<=#{end} and ar_bus_type='Bo'
-  	group by sup_name  	
+  	group by sup_name
   	 ]]>
   </select>
 </mapper>

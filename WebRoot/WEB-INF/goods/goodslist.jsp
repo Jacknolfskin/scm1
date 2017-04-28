@@ -28,7 +28,7 @@
 			    idField:'goodsId',
 			    rownumbers:true,
 			    pagination:true,
-			    pageSize:10,
+			    pageSize:20,
 			    pageList:[2,5,10,20],
 			    
 			     queryParams: {

@@ -31,12 +31,7 @@
   
   <!--通过多条件分页查询，返回数据集  -->
   <select id="selectPageListUseDyc" parameterType="page" resultMap="AccountRecordsResultMap">
-  select sup_id,ar_bus_type,ar_payable,ar_paid,ar_arrears,ar_discount,ar_attn,ar_operator,ar_date arDate,ar_remark,ar_id from account_records
-  <where>
-  <if test="paramEntity.arOperator!=null">and ar_operator like #{paramEntity.arOperator}</if>
-  <if test="paramEntity.arAttn!=null">and ar_attn like #{paramEntity.arAttn}</if>
-  </where>
-  limit #{start},#{rows}
+    select sup_id,ar_bus_type,ar_payable,ar_paid,ar_arrears,ar_discount,ar_attn,ar_operator,ar_date ,ar_remark,ar_id from account_records  order by ar_date DESC limit #{start},#{rows}
   </select>
   
   <!--通过多条件分页查询，返回总记录数  -->

@@ -31,7 +31,7 @@
 			    idField:'supId',
 			    rownumbers:true,
 			    pagination:true,
-			    pageSize:10,
+			    pageSize:20,
 			    pageList:[2,5,10,20],
 			    
 			     queryParams: {
@@ -64,7 +64,6 @@
 						var array = $('#dg').datagrid("getSelections");
 						if(array.length!=1){
                             $.messager.alert("操作提示", "请选择需要修改的记录，并且只能选中一条！","warning");
-							//alert("请选择需要修改的记录，并且只能选中一条！");
 							return false;							
 						}
 						
@@ -135,7 +134,7 @@
 					iconCls: 'icon-redo',
 					text:'导出',
 					handler: function(){
-						//alert('导出按钮');
+
 						
 						var array = $('#dg').datagrid("getSelections");
 						if(array.length>0){
@@ -144,7 +143,7 @@
 						var ids = new Array();
 						for (i = 0; i < array.length; i++) {
 							ids[i] = array[i].supId;
-							//alert(ids[i]);
+
 						}
 						
 						//需要锁整个页面，前面加parent.
@@ -152,7 +151,6 @@
 							if (r) {
 								var pks = ids;
 								$("#pks").val(pks);
-								alert("***************"+$("#pks").val());
 								$("#ff").submit();
 							}
 						});
