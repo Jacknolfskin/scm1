@@ -1,20 +1,15 @@
 package cn.zhx.scm1.action;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-
-import javax.annotation.Resource;
-
+import cn.zhx.scm1.entity.BuyOrder;
+import cn.zhx.scm1.entity.BuyOrderDetail;
+import cn.zhx.scm1.service.BuyOrderService;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.zhx.scm1.entity.BuyOrder;
-import cn.zhx.scm1.entity.BuyOrderDetail;
-import cn.zhx.scm1.service.BuyOrderService;
+import javax.annotation.Resource;
+import java.util.Arrays;
 
 @Controller
 @RequestMapping("/buyOrder")

@@ -23,7 +23,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/WebRoot/WEB-INF/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -56,5 +56,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
